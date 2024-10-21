@@ -31,7 +31,7 @@ public class Quizz  {
     private Set<Question> questions = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private Category category;
+    private Category category; 
 
     public Quizz() {
 

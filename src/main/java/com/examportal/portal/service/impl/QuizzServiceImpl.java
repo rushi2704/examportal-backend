@@ -1,5 +1,6 @@
 package com.examportal.portal.service.impl;
 
+import com.examportal.portal.model.exam.Category;
 import com.examportal.portal.model.exam.Quizz;
 import com.examportal.portal.repo.QuizzRepository;
 import com.examportal.portal.service.QuizzService;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -43,4 +45,23 @@ public class QuizzServiceImpl implements QuizzService {
         this.quizzRepository.deleteById(quizzId);
 
     }
+
+    @Override
+    public List<Quizz> getQuizzesOfCategory(Category category) {
+        return this.quizzRepository.findBycategory(category);
+    }
+////////////////////////////user api////////////////////////////////////////
+    //get Active Quizzes
+    @Override
+    public List<Quizz> getActiveQuizzes() {
+       return this.quizzRepository.findByActive(true);
+    }
+
+    @Override
+    public List<Quizz> getActiveQuizzesOfCategory(Category c) {
+        return this.quizzRepository.findByCategoryAndActive(c,true);
+    }
+
+
+
 }

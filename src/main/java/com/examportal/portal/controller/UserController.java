@@ -30,6 +30,13 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+
+    @GetMapping("/test")
+    public String test()
+    {
+        return "welcome to backend api of exam Portal";
+    }
+
    // for creating user
 
 

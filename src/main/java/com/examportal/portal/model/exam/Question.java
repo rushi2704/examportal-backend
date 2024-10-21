@@ -1,6 +1,8 @@
 package com.examportal.portal.model.exam;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 @Entity
@@ -18,7 +20,12 @@ public class Question {
      private String option2;
     private String option3;
     private String option4;
+
+
     private String answer;
+
+    @Transient
+    private String givenAnswer;
 
 
 
@@ -99,5 +106,13 @@ public class Question {
 
     public void setQuizz(Quizz quizz) {
         this.quizz = quizz;
+    }
+
+    public String getGivenAnswer() {
+        return givenAnswer;
+    }
+
+    public void setGivenAnswer(String givenAnswer) {
+        this.givenAnswer = givenAnswer;
     }
 }
